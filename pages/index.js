@@ -2,22 +2,28 @@ import Layout from '../components/MyLayout.js'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 
+const SeasonListing = props => (
+  <>
+    <h3>{props.season.name}</h3>
+    <ol>
+      {props.season.episodes.map(episode => (
+        <li>
+          <Link href="/p/[id]" as={`/p/${episode.id}`}>
+            <a>{episode.name}</a>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  </>
+);
+
 const Index = props => (
   <Layout>
     <h1>House of Cards Episodes</h1>
-    <div>
+    <div class="mt-5">
       {props.seasons.map(season => (
         <div>
-          <h3>{season.name}</h3>
-          <ol>
-            {season.episodes.map(episode => (
-              <li>
-                <Link href="/p/[id]" as={`/p/${episode.id}`}>
-                  <a>{episode.name}</a>
-                </Link>
-              </li>
-            ))}
-          </ol>
+          <SeasonListing season={season} />
         </div>
       ))}
     </div>
