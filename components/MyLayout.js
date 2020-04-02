@@ -1,28 +1,23 @@
 import Header from './Header'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Container from '@material-ui/core/Container'
-import { Paper, Box, makeStyles } from '@material-ui/core'
-
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  }
-}));
+import Head from 'next/head'
+import { Badge, Container } from 'react-bootstrap'
 
 export default function Layout(props) {
-  const classes = useStyles();
 
-  return (
-    <>
-      <CssBaseline />
-      <Container maxWidth="lg">
+  return (<>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+    </Head>
+    <div>
+      <Container>
         <Header />
-        <Paper >
-          <Box m={1} p={2}>
-            {props.children}
-          </Box>
-        </Paper>
-      </Container>
-    </>
+        {props.children}
+      </Container>   
+    </div></>
   )
 }

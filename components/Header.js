@@ -1,21 +1,16 @@
 import Link from 'next/link'
-import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button'
-import TypoGraphy from '@material-ui/core/Typography'
-import { Toolbar, Grow } from '@material-ui/core'
+import { Navbar, Nav } from 'react-bootstrap'
 
 export default function Header() {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <TypoGraphy variant="h6">House of Cards</TypoGraphy>
-        <Link href="/">
-          <Button color="inherit">Home</Button>
-        </Link>
-        <Link href="/about">
-          <Button color="inherit">About</Button>
-        </Link>
-      </Toolbar>
-    </AppBar>
+    <Navbar>
+      <Navbar.Brand>House of Cards Episodes</Navbar.Brand>
+      <Navbar.Collapse>
+        <Nav>
+          <Link href="/" passHref><Nav.Link>Home</Nav.Link></Link>
+          <Link href="/about" passHref><Nav.Link>About</Nav.Link></Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
