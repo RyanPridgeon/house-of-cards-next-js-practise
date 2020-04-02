@@ -6,11 +6,17 @@ async function getAllEpisodes() {
   const groupedBySeason = data.reduce(function(map, obj) {
     if (!(obj.season in map)) {
       map[obj.season] = {
+        key: obj.season,
         name: "Season " + obj.season,
         episodes: []
       };
     }
-    map[obj.season].episodes.push(obj);
+    var episode = {
+      key: obj.id,
+      id: obj.id,
+      name: obj.name
+    }
+    map[obj.season].episodes.push(episode);
     return map;
   }, {});
 
