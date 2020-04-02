@@ -1,5 +1,6 @@
 import Layout from '../../components/MyLayout.js'
 import fetch from 'isomorphic-unfetch'
+import HouseOfCardsInfo from '../../utils/HouseOfCardsInfo.js';
 
 const Post = props => {
   return (
@@ -13,12 +14,7 @@ const Post = props => {
 
 Post.getInitialProps = async function(context) {
   const { id } = context.query;
-  const res = await fetch(`http://api.tvmaze.com/episodes/${id}`);
-  const episode = await res.json();
-
-  console.log(episode.name);
-
-  return { episode };
+  return { episode: await HouseOfCardsInfo.getSingleEpisode(id) };
 };
 
 export default Post;
