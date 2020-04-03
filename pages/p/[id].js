@@ -1,5 +1,4 @@
 import Layout from '../../components/MyLayout.js'
-import fetch from 'isomorphic-unfetch'
 import HouseOfCardsInfo from '../../utils/HouseOfCardsInfo.js';
 
 const Post = props => {

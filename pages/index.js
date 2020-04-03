@@ -1,5 +1,5 @@
 import Layout from '../components/MyLayout.js'
-import Link from 'next/link'
+import Link from '../components/Link'
 import HouseOfCardsInfo from '../utils/HouseOfCardsInfo.js';
 
 const SeasonListing = props => (
