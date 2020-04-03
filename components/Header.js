@@ -1,4 +1,4 @@
-import Link from '../components/Link'
+import Link from 'next/link'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 
 export default function Header() {
